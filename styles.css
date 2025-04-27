@@ -105,6 +105,69 @@ img {
     max-width: 50%;
 }
 
+/* Animación del texto de cabecera (Ejercicio 2.1) */
+@keyframes titleAnimation {
+    0% {
+        opacity: 0;
+        transform: translateY(30px);
+        color: transparent;
+    }
+    30% {
+        opacity: 0.5;
+        transform: translateY(15px);
+        color: #e67e22; /* Color naranja */
+    }
+    70% {
+        opacity: 0.8;
+        transform: translateY(5px);
+        color: #e67e22; /* Color naranja */
+    }
+    100% {
+        opacity: 1;
+        transform: translateY(0);
+        color: white;
+    }
+}
+
+.header-content h1 {
+    animation: titleAnimation 2s ease-in-out forwards;
+    text-shadow: 1px 1px 3px rgba(0,0,0,0.5);
+}
+
+/* Animación del texto secundario (Ejercicio 2.2) */
+@keyframes textAnimation {
+    0% {
+        transform: scale(0.8) translateX(-20px);
+        opacity: 0;
+        letter-spacing: -2px;
+    }
+    25% {
+        transform: scale(0.9) translateX(-10px);
+        opacity: 0.3;
+        letter-spacing: -1px;
+    }
+    50% {
+        transform: scale(0.95) translateX(-5px);
+        opacity: 0.6;
+        letter-spacing: 0px;
+    }
+    75% {
+        transform: scale(0.98) translateX(-2px);
+        opacity: 0.8;
+        letter-spacing: 1px;
+    }
+    100% {
+        transform: scale(1) translateX(0);
+        opacity: 1;
+        letter-spacing: normal;
+    }
+}
+
+.header-content p {
+    animation: textAnimation 1.5s ease-in-out 0.5s forwards;
+    opacity: 0; /* Inicialmente invisible */
+}
+
 /* ===== SECCIÓN SOBRE NOSALTRES ===== */
 .nosaltres-container {
     display: grid;
@@ -188,7 +251,7 @@ img {
 .galeria-item {
     width: calc(25% - 1rem);
     border: 2px solid #ddd;
-    overflow: hidden;
+    overflow: hidden; /* Importante para controlar el efecto scale */
     transition: all 0.3s ease;
 }
 
@@ -196,7 +259,9 @@ img {
     width: 100%;
     height: 200px;
     object-fit: cover;
-    transition: filter 0.3s ease;
+    /* Transición en imágenes de galería (Ejercicio 1.1) */
+    transition: transform 0.4s ease-out, filter 0.4s ease-in-out, rotate 0.4s ease;
+    transform-origin: center center;
 }
 
 /* Efecto hover en la galería */
@@ -204,13 +269,105 @@ img {
     border: 2px solid #1a3c40; /* Borde al hacer hover */
 }
 
+/* Efecto hover mejorado con scale, rotate y grayscale (Ejercicio 1.1) */
 .galeria-item:hover img {
-    filter: brightness(0.7); /* Imagen más oscura al hacer hover */
+    filter: grayscale(50%) brightness(0.9); /* Combinación de filtros */
+    transform: scale(1.15) rotate(5deg); /* Escala y rotación */
 }
 
 /* Imágenes específicas más oscuras (1, 4, 5 y 8) */
 .darker img {
     filter: brightness(0.7);
+}
+
+/* Transición personalizada para el menú principal (Ejercicio 1.2) */
+.menu-container a {
+    position: relative;
+    overflow: hidden;
+    transition: color 0.3s ease-in-out, letter-spacing 0.4s ease, text-shadow 0.3s ease;
+}
+
+.menu-container a:hover {
+    color: #e67e22; /* Color naranja */
+    letter-spacing: 1px; /* Espaciado entre letras */
+    text-shadow: 1px 1px 3px rgba(0,0,0,0.3); /* Sombra de texto */
+}
+
+/* ===== SECCIÓN VÍDEO (Ejercicio 3) ===== */
+.video-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 2rem auto;
+    max-width: 100%;
+    overflow: hidden; /* Previene scroll horizontal */
+}
+
+#restaurant-video {
+    max-width: 100%;
+    height: auto;
+    border-radius: 8px;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+    /* Aseguramos que el video se adapte responsivamente */
+    width: 800px; /* Ancho máximo en pantallas grandes */
+}
+
+/* ===== CONTROLES PERSONALIZADOS DE VÍDEO (Ejercicio 4) ===== */
+.custom-video-container {
+    position: relative;
+    max-width: 800px;
+    margin: 2rem auto;
+    overflow: hidden;
+    border-radius: 8px;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+}
+
+#custom-video {
+    width: 100%;
+    display: block;
+    cursor: pointer;
+}
+
+/* Capa de controles personalizada */
+.custom-controls {
+    position: absolute;
+    top: 0;
+    right: 0;
+    background-color: rgba(0, 0, 0, 0.6);
+    padding: 10px;
+    border-radius: 0 0 0 8px;
+    display: flex;
+    gap: 10px;
+}
+
+/* Estilo para los botones de control */
+.video-btn {
+    background: none;
+    border: none;
+    color: white;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+/* Efecto hover para los botones */
+.video-btn:hover {
+    color: #e67e22; /* Color naranja */
+    filter: drop-shadow(0 0 5px rgba(255, 255, 255, 0.7));
+    transform: scale(1.2);
+}
+
+.video-btn .material-icons {
+    font-size: 1.8rem;
+}
+
+/* Por defecto, ocultar el botón de pausa */
+#pause-btn {
+    display: none;
+}
+
+/* Por defecto, ocultar el botón de sonido activo */
+#unmute-btn {
+    display: none;
 }
 
 /* ===== FORMULARIO DE RESERVA ===== */
@@ -304,40 +461,175 @@ footer {
 }
 
 /* ===== MEDIA QUERIES ===== */
+
+/* 
+* DISEÑO RESPONSIVE
+* Implementación según especificaciones de Práctica 11
+* Tablets (max-width: 768px) y Móviles (max-width: 576px)
+*/
+
+/* ===== TABLETS (max-width: 768px) ===== */
 @media (max-width: 768px) {
-    .nosaltres-container {
-        grid-template-columns: 1fr;
+    /* Ajustes generales */
+    html {
+        font-size: 14px; /* Reducción de tamaño base para tablets */
     }
     
+    /* Sección Nosaltres */
+    .nosaltres-container {
+        display: grid;
+        grid-template-columns: 1fr 1fr; /* Mantenemos 2 columnas pero con ajustes */
+        gap: 1.5rem;
+    }
+    
+    /* Sección Carta */
     .grid-carta {
-        grid-template-columns: 1fr;
+        grid-template-columns: auto 1fr; /* Mantenemos estructura pero ajustamos tamaños */
+    }
+    
+    .menu-label {
+        width: 6rem;
+    }
+    
+    .platos-container {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 1rem;
+    }
+    
+    /* Galería de imágenes */
+    .galeria-container {
+        justify-content: center;
     }
     
     .galeria-item {
-        width: calc(50% - 1rem);
+        width: calc(33.33% - 1rem); /* 3 imágenes por fila */
     }
     
+    /* Formulario */
     .form-row {
-        flex-direction: column;
+        flex-direction: row; /* Mantenemos en línea */
     }
     
+    /* Footer */
     .footer-container {
-        flex-direction: column;
+        display: flex;
+        justify-content: center;
+        align-items: center;
         text-align: center;
-        gap: 1.5rem;
+    }
+    
+    /* Mostramos los contactos en línea para ahorrar espacio */
+    .contacto {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        gap: 0.5rem;
     }
 }
 
-@media (max-width: 480px) {
+/* ===== MÓVILES (max-width: 576px) ===== */
+@media (max-width: 576px) {
+    /* Ajustes generales */
+    html {
+        font-size: 12px; /* Reducción adicional para móviles */
+    }
+    
+    /* Menú principal */
+    .menu-container {
+        padding: 0.75rem 0;
+    }
+    
+    #menu-principal a {
+        margin: 0 0.75rem;
+        font-size: 0.9rem;
+    }
+    
+    /* Cabecera */
+    #cabecera {
+        height: 40vh; /* Altura reducida */
+    }
+    
     .header-content {
-        max-width: 80%;
+        max-width: 90%;
+        padding: 1rem;
+        left: 50%;
+        transform: translate(-50%, -50%); /* Centrado completo */
+        text-align: center;
+    }
+    
+    /* Sección Nosaltres */
+    .nosaltres-container {
+        grid-template-columns: 1fr; /* Una sola columna */
+        gap: 1rem;
+    }
+    
+    .nosaltres-img, .nosaltres-img-2 {
+        max-height: 200px;
+        overflow: hidden;
+    }
+    
+    /* Sección Carta */
+    .grid-carta {
+        grid-template-columns: 1fr; /* Una columna en móvil */
+    }
+    
+    .menu-label {
+        width: 100%;
+        padding: 0.75rem;
+        margin-top: 1rem;
+    }
+    
+    .menu-content {
+        padding: 0.75rem;
     }
     
     .platos-container {
         flex-direction: column;
     }
     
+    .plato {
+        margin-bottom: 1rem;
+    }
+    
+    /* Galería de imágenes */
     .galeria-item {
+        width: 100%; /* Una imagen por fila */
+        margin-bottom: 1rem;
+    }
+    
+    /* Formulario */
+    .form-row {
+        flex-direction: column;
+    }
+    
+    .form-group {
+        margin-bottom: 0.75rem;
+    }
+    
+    /* Footer */
+    footer {
+        padding: 1.5rem 5%;
+    }
+    
+    .footer-container {
+        flex-direction: column;
+    }
+    
+    .logo {
+        display: none; /* Ocultamos el logo en móvil según especificación */
+    }
+    
+    .contacto {
         width: 100%;
+        justify-content: center;
+    }
+    
+    /* Botón de reserva */
+    #btn-flotante {
+        padding: 0.75rem 1rem;
+        font-size: 0.9rem;
+        bottom: 1rem;
+        right: 1rem;
     }
 }

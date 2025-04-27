@@ -8,6 +8,11 @@
     <link rel="icon" href="img/restaurante.jpg" type="image/x-icon">
     <!-- Google icons para el footer -->
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <!-- Se agrega una descripción para mejorar SEO y accesibilidad -->
+    <meta name="description" content="Restaurant els Coberts - Comida tradicional catalana en un ambiente acogedor.">
+    <!-- Scripts para controlar elementos multimedia -->
+    <script src="js/video-controls.js"></script>
+    <script src="js/navbar-scroll.js"></script>
 </head>
 <body>
     <!-- Menú de navegación fijo -->
@@ -126,6 +131,43 @@
             </div>
             <div class="galeria-item darker">
                 <img src="restaurante.jpg" alt="Galeria 8">
+            </div>
+        </div>
+    </section>
+
+    <!-- Sección de Vídeo (Ejercicio 3) -->
+    <section id="videos" class="section">
+        <h2>Vídeos del Restaurant</h2>
+        <div class="video-container">
+            <!-- Vídeo con controles nativos (Para el ejercicio 3) -->
+            <video id="restaurant-video" controls muted>
+                <source src="video.mp4" type="video/mp4">
+                El teu navegador no suporta el tag de vídeo.
+            </video>
+        </div>
+
+        <!-- Vídeo con controles personalizados (Ejercicio 4) -->
+        <h3>Descobreix les nostres creacions culinàries</h3>
+        <div class="custom-video-container">
+            <video id="custom-video" muted>
+                <source src="video.mp4" type="video/mp4">
+                El teu navegador no suporta el tag de vídeo.
+            </video>
+            
+            <!-- Capa de controles personalizada -->
+            <div class="custom-controls">
+                <button id="play-btn" class="video-btn" aria-label="Reproduir">
+                    <span class="material-icons">play_circle</span>
+                </button>
+                <button id="pause-btn" class="video-btn" aria-label="Pausar">
+                    <span class="material-icons">pause_circle</span>
+                </button>
+                <button id="unmute-btn" class="video-btn" aria-label="Activar so">
+                    <span class="material-icons">volume_up</span>
+                </button>
+                <button id="mute-btn" class="video-btn" aria-label="Silenciar">
+                    <span class="material-icons">volume_off</span>
+                </button>
             </div>
         </div>
     </section>
