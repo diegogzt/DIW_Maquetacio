@@ -304,40 +304,175 @@ footer {
 }
 
 /* ===== MEDIA QUERIES ===== */
+
+/* 
+* DISEÑO RESPONSIVE
+* Implementación según especificaciones de Práctica 11
+* Tablets (max-width: 768px) y Móviles (max-width: 576px)
+*/
+
+/* ===== TABLETS (max-width: 768px) ===== */
 @media (max-width: 768px) {
-    .nosaltres-container {
-        grid-template-columns: 1fr;
+    /* Ajustes generales */
+    html {
+        font-size: 14px; /* Reducción de tamaño base para tablets */
     }
     
+    /* Sección Nosaltres */
+    .nosaltres-container {
+        display: grid;
+        grid-template-columns: 1fr 1fr; /* Mantenemos 2 columnas pero con ajustes */
+        gap: 1.5rem;
+    }
+    
+    /* Sección Carta */
     .grid-carta {
-        grid-template-columns: 1fr;
+        grid-template-columns: auto 1fr; /* Mantenemos estructura pero ajustamos tamaños */
+    }
+    
+    .menu-label {
+        width: 6rem;
+    }
+    
+    .platos-container {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 1rem;
+    }
+    
+    /* Galería de imágenes */
+    .galeria-container {
+        justify-content: center;
     }
     
     .galeria-item {
-        width: calc(50% - 1rem);
+        width: calc(33.33% - 1rem); /* 3 imágenes por fila */
     }
     
+    /* Formulario */
     .form-row {
-        flex-direction: column;
+        flex-direction: row; /* Mantenemos en línea */
     }
     
+    /* Footer */
     .footer-container {
-        flex-direction: column;
+        display: flex;
+        justify-content: center;
+        align-items: center;
         text-align: center;
-        gap: 1.5rem;
+    }
+    
+    /* Mostramos los contactos en línea para ahorrar espacio */
+    .contacto {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        gap: 0.5rem;
     }
 }
 
-@media (max-width: 480px) {
+/* ===== MÓVILES (max-width: 576px) ===== */
+@media (max-width: 576px) {
+    /* Ajustes generales */
+    html {
+        font-size: 12px; /* Reducción adicional para móviles */
+    }
+    
+    /* Menú principal */
+    .menu-container {
+        padding: 0.75rem 0;
+    }
+    
+    #menu-principal a {
+        margin: 0 0.75rem;
+        font-size: 0.9rem;
+    }
+    
+    /* Cabecera */
+    #cabecera {
+        height: 40vh; /* Altura reducida */
+    }
+    
     .header-content {
-        max-width: 80%;
+        max-width: 90%;
+        padding: 1rem;
+        left: 50%;
+        transform: translate(-50%, -50%); /* Centrado completo */
+        text-align: center;
+    }
+    
+    /* Sección Nosaltres */
+    .nosaltres-container {
+        grid-template-columns: 1fr; /* Una sola columna */
+        gap: 1rem;
+    }
+    
+    .nosaltres-img, .nosaltres-img-2 {
+        max-height: 200px;
+        overflow: hidden;
+    }
+    
+    /* Sección Carta */
+    .grid-carta {
+        grid-template-columns: 1fr; /* Una columna en móvil */
+    }
+    
+    .menu-label {
+        width: 100%;
+        padding: 0.75rem;
+        margin-top: 1rem;
+    }
+    
+    .menu-content {
+        padding: 0.75rem;
     }
     
     .platos-container {
         flex-direction: column;
     }
     
+    .plato {
+        margin-bottom: 1rem;
+    }
+    
+    /* Galería de imágenes */
     .galeria-item {
+        width: 100%; /* Una imagen por fila */
+        margin-bottom: 1rem;
+    }
+    
+    /* Formulario */
+    .form-row {
+        flex-direction: column;
+    }
+    
+    .form-group {
+        margin-bottom: 0.75rem;
+    }
+    
+    /* Footer */
+    footer {
+        padding: 1.5rem 5%;
+    }
+    
+    .footer-container {
+        flex-direction: column;
+    }
+    
+    .logo {
+        display: none; /* Ocultamos el logo en móvil según especificación */
+    }
+    
+    .contacto {
         width: 100%;
+        justify-content: center;
+    }
+    
+    /* Botón de reserva */
+    #btn-flotante {
+        padding: 0.75rem 1rem;
+        font-size: 0.9rem;
+        bottom: 1rem;
+        right: 1rem;
     }
 }
