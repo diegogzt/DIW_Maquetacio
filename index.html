@@ -1,183 +1,539 @@
 <!DOCTYPE html>
 <html lang="ca">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Restaurant els Coberts</title>
+    <meta name="description"
+        content="Restaurant els Coberts - Gastronomía tradicional catalana con un toque moderno en un ambiente acogedor y elegante. Disfruta de nuestra terraza y vistas al mar.">
+    <meta name="keywords" content="restaurant, català, gastronomia, menú, reserva, els coberts">
+    <meta name="author" content="dgtovar">
+    <title>Restaurant els Coberts | Gastronomía tradicional catalana</title>
+
+    <!-- Favicon -->
+    <link rel="icon" href="img/favicon.png" type="image/png">
+
+    <!-- Fuentes -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500;600;700&family=Montserrat:wght@300;400;500;600;700&display=swap"
+        rel="stylesheet">
+
+    <!-- Material Icons -->
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons+Round" rel="stylesheet">
+
+    <!-- AOS Animation Library -->
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+
+    <!-- CSS personalizado -->
     <link rel="stylesheet" href="styles.css">
-    <link rel="icon" href="img/restaurante.jpg" type="image/x-icon">
-    <!-- Google icons para el footer -->
-    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
 </head>
+
 <body>
-    <!-- Menú de navegación fijo -->
-    <nav id="menu-principal">
-        <div class="menu-container">
-            <a href="#nosaltres">Nosaltres</a>
-            <a href="#carta">Carta</a>
-            <a href="#galeria">Galeria</a>
+    <!-- Preloader -->
+    <div class="preloader">
+        <div class="spinner"></div>
+    </div>
+
+    <!-- Menú de navegación -->
+    <nav id="menu-principal" class="navbar">
+        <div class="container">
+            <a href="#" class="logo-nav">
+                <img src="logo.webp" alt="Logo Els Coberts" class="logo-img" width="60%" height="100%">
+            </a>
+
+            <div class="menu-container">
+                <a href="#nosaltres" class="nav-link">Nosaltres</a>
+                <a href="#carta" class="nav-link">Carta</a>
+                <a href="#galeria" class="nav-link">Galeria</a>
+                <a href="#videos" class="nav-link">Vídeos</a>
+                <a href="#reserva" class="nav-link">Reserva</a>
+            </div>
+
+            <button class="mobile-menu-btn" aria-label="Menu">
+                <span class="bar"></span>
+                <span class="bar"></span>
+                <span class="bar"></span>
+            </button>
         </div>
     </nav>
 
     <!-- Cabecera con imagen y texto -->
     <header id="cabecera">
-        <img src="restaurante.jpg" alt="Restaurant els Coberts" class="header-img">
-        <div class="header-content">
-            <h1>Restaurant <span class="bold">els Coberts</span></h1>
-            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
+        <div class="overlay"></div>
+        <div class="slider-container">
+            <div class="slide active black">
+                <img src="res-int.jpg" class="opacity" alt="Restaurant els Coberts - Terraza">
+            </div>
+            <div class="slide black">
+                <img src="img/r1.jpg" class="opacity" alt="Restaurant els Coberts - Interior">
+            </div>
+            <div class="slide black">
+                <img src="restaurante.jpg" class="opacity" alt="Restaurant els Coberts - Comida">
+            </div>
+        </div>
+
+        <div class="header-content" data-aos="fade-up" data-aos-delay="300">
+            <h1>Restaurant <span class="accent">els Coberts</span></h1>
+            <p class="tagline">Cuina tradicional catalana amb un toc modern</p>
+            <div class="header-buttons">
+                <a href="#carta" class="btn btn-primary">Descobreix la nostra carta</a>
+                <a href="#reserva" class="btn btn-outline">Reserva ara</a>
+            </div>
+        </div>
+
+        <div class="scroll-down">
+            <a href="#nosaltres">
+                <span class="material-icons-round">keyboard_arrow_down</span>
+            </a>
         </div>
     </header>
 
     <!-- Sección Sobre Nosaltres -->
     <section id="nosaltres" class="section">
-        <h2>Sobre nosaltres</h2>
-        <div class="nosaltres-container">
-            <div class="nosaltres-img">
-                <img src="res-int.jpg" alt="Nosaltres 1">
+        <div class="container">
+            <div class="section-header" data-aos="fade-up">
+                <h2 class="section-title">Sobre nosaltres</h2>
+                <div class="separator"></div>
+                <p class="section-subtitle">Coneix la nostra història i filosofia</p>
             </div>
-            <div class="nosaltres-text">
-                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.</p>
-            </div>
-            <div class="nosaltres-text-2">
-                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.</p>
-            </div>
-            <div class="nosaltres-img-2">
-                <img src="rest-in-2.jpg" alt="Nosaltres 2">
+
+            <div class="nosaltres-container">
+                <div class="nosaltres-img" data-aos="fade-right" data-aos-delay="100">
+                    <img src="restaurante.jpg" alt="Interior del Restaurant els Coberts" class="rounded-image">
+                </div>
+                <div class="nosaltres-text" data-aos="fade-left" data-aos-delay="200">
+                    <h3>La nostra filosofia</h3>
+                    <p>A <span class="accent">Els Coberts</span> ens apassiona oferir-vos una experiència gastronòmica
+                        autèntica que reflecteix la rica tradició culinària catalana. Cada plat és una celebració dels
+                        sabors locals i les receptes tradicionals que han passat de generació en generació.</p>
+                    <p>Utilitzem productes frescos i de proximitat, seleccionats amb cura per garantir la màxima
+                        qualitat i sostenibilitat. El nostre equip de cuiners treballa amb passió i dedicació per crear
+                        plats que respecten la tradició però amb un toc innovador.</p>
+                    <div class="nosaltres-stats">
+                        <div class="stat-item">
+                            <span class="stat-number">15</span>
+                            <span class="stat-text">Anys d'experiència</span>
+                        </div>
+                        <div class="stat-item">
+                            <span class="stat-number">35</span>
+                            <span class="stat-text">Plats únics</span>
+                        </div>
+                        <div class="stat-item">
+                            <span class="stat-number">98%</span>
+                            <span class="stat-text">Clients satisfets</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="nosaltres-text-2" data-aos="fade-right" data-aos-delay="300">
+                    <h3>Els nostres valors</h3>
+                    <p>Creiem en la importància de recuperar les arrels de la nostra cultura gastronòmica, però també en
+                        la innovació i l'evolució. Per això, el nostre equip es forma constantment per oferir-vos el
+                        millor servei i les millors creacions culinàries.</p>
+                    <p>La qualitat, l'autenticitat i l'hospitalitat són els valors que defineixen la nostra manera de
+                        treballar. Volem que quan ens visiteu us sentiu com a casa, gaudint d'una experiència única i
+                        memorable.</p>
+                    <a href="#carta" class="btn btn-secondary">Descobreix la nostra carta</a>
+                </div>
+                <div class="nosaltres-img-2" data-aos="fade-left" data-aos-delay="400">
+                    <img src="croquetas.webp" alt="Detall de la cuina del Restaurant els Coberts"
+                        class="rounded-image">
+                </div>
             </div>
         </div>
     </section>
 
     <!-- Sección Carta -->
-    <section id="carta" class="section">
-        <h2>Carta</h2>
-        <div class="titulo-menu">Menú</div>
-        
-        <div class="grid-carta">
-            <!-- Menú 1 -->
-            <div class="menu-label">Menú 1</div>
-            <div class="menu-content">
-                <h3>Contingut</h3>
-                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.</p>
-                
-                <div class="platos-container">
-                    <div class="plato">
-                        <img src="img/r1.jpg" alt="Pasta">
-                        <div class="plato-overlay">
-                            <div class="plato-nombre">pasta</div>
+    <section id="carta" class="section bg-light">
+        <div class="container">
+            <div class="section-header" data-aos="fade-up">
+                <h2 class="section-title">La nostra carta</h2>
+                <div class="separator"></div>
+                <p class="section-subtitle">Descobreix els nostres menús preparats amb els millors productes</p>
+            </div>
+
+            <div class="menu-tabs" data-aos="fade-up" data-aos-delay="100">
+                <button class="menu-tab active" data-target="menu1">Menú Degustació</button>
+                <button class="menu-tab" data-target="menu2">Menú de Temporada</button>
+                <button class="menu-tab" data-target="menu3">Carta</button>
+            </div>
+
+            <div class="menu-content-wrapper">
+                <!-- Menú 1 -->
+                <div id="menu1" class="menu-content active" data-aos="fade-up" data-aos-delay="200">
+                    <div class="menu-header">
+                        <h3 class="menu-title">Menú Degustació</h3>
+                        <p class="menu-description">Un recorregut per la gastronomia tradicional catalana en 5 passes
+                        </p>
+                        <span class="menu-price">45€ per persona</span>
+                    </div>
+
+                    <div class="platos-container">
+                        <div class="plato" data-aos="fade-up" data-aos-delay="100">
+                            <div class="plato-img">
+                                <img src="img/r1.jpg" alt="Pasta fresca amb bolets">
+                            </div>
+                            <div class="plato-info">
+                                <h4 class="plato-nombre">Pasta fresca amb bolets</h4>
+                                <p class="plato-descripcion">Tallarines fets a casa amb bolets de temporada, formatge
+                                    parmesà i tòfona</p>
+                            </div>
+                        </div>
+
+                        <div class="plato" data-aos="fade-up" data-aos-delay="200">
+                            <div class="plato-img">
+                                <img src="brucheta.jpg" alt="Entrants variats">
+                            </div>
+                            <div class="plato-info">
+                                <h4 class="plato-nombre">Entrants variats</h4>
+                                <p class="plato-descripcion">Selecció d'entrants tradicionals catalans, incloent pa amb
+                                    tomàquet, embotits i formatges artesanals</p>
+                            </div>
+                        </div>
+
+                        <div class="plato" data-aos="fade-up" data-aos-delay="300">
+                            <div class="plato-img">
+                                <img src="calamares.jpg" alt="Calamars a la romana">
+                            </div>
+                            <div class="plato-info">
+                                <h4 class="plato-nombre">Calamars a la romana</h4>
+                                <p class="plato-descripcion">Calamars frescos arrebossats amb una lleugera massa de
+                                    cervesa, acompanyats d'allioli</p>
+                            </div>
+                        </div>
+
+                        <div class="plato" data-aos="fade-up" data-aos-delay="400">
+                            <div class="plato-img">
+                                <img src="croquetas.webp" alt="Croquetes de pernil">
+                            </div>
+                            <div class="plato-info">
+                                <h4 class="plato-nombre">Croquetes de pernil</h4>
+                                <p class="plato-descripcion">Croquetes cremoses de pernil ibèric fetes a casa, amb una
+                                    textura suau i un sabor intens</p>
+                            </div>
                         </div>
                     </div>
-                    <div class="plato">
-                        <img src="brucheta.jpg" alt="Entrants">
-                        <div class="plato-overlay">
-                            <div class="plato-nombre">entrants</div>
-                        </div>
+                </div>
+
+                <!-- Menú 2 -->
+                <div id="menu2" class="menu-content" data-aos="fade-up" data-aos-delay="200">
+                    <div class="menu-header">
+                        <h3 class="menu-title">Menú de Temporada</h3>
+                        <p class="menu-description">Selecció de plats amb productes frescos de temporada</p>
+                        <span class="menu-price">38€ per persona</span>
                     </div>
+
+                    <div class="platos-container">
+                        <!-- Contenido del menú 2 -->
+                        <!-- Este contenido se añadirá como en el primer menú pero con diferentes platos -->
+                    </div>
+                </div>
+
+                <!-- Menú 3 -->
+                <div id="menu3" class="menu-content" data-aos="fade-up" data-aos-delay="200">
+                    <!-- Contenido de la carta -->
+                    <!-- Este contenido se añadirá como en el primer menú pero con diferentes platos -->
                 </div>
             </div>
 
-            <!-- Menú 2 -->
-            <div class="menu-label">Menú 2</div>
-            <div class="menu-content">
-                <h3>Contingut</h3>
-                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.</p>
-                
-                <div class="platos-container">
-                    <div class="plato">
-                        <img src="calamares.jpg" alt="Amanida">
-                        <div class="plato-overlay">
-                            <div class="plato-nombre">amanida</div>
-                        </div>
-                    </div>
-                    <div class="plato">
-                        <img src="croquetas.webp" alt="Peix">
-                        <div class="plato-overlay">
-                            <div class="plato-nombre">peix</div>
-                        </div>
-                    </div>
-                </div>
+            <div class="menu-footer" data-aos="fade-up" data-aos-delay="400">
+                <p class="menu-note">* Tots els nostres plats es poden adaptar a necessitats dietètiques específiques
+                    (sense gluten, vegetarians, vegans). Consulta amb el nostre personal.</p>
+                <a href="#reserva" class="btn btn-primary">Reserva ara</a>
             </div>
         </div>
     </section>
 
     <!-- Sección Galería de Imágenes -->
     <section id="galeria" class="section">
-        <h2>Galeria d'imatges</h2>
-        <div class="galeria-container">
-            <div class="galeria-item darker">
-                <img src="restaurante.jpg" alt="Galeria 1">
+        <div class="container">
+            <div class="section-header" data-aos="fade-up">
+                <h2 class="section-title">Galeria d'imatges</h2>
+                <div class="separator"></div>
+                <p class="section-subtitle">Descobreix la nostra atmosfera i creacions culinàries</p>
             </div>
-            <div class="galeria-item">
-                <img src="res-int.jpg" alt="Galeria 2">
+
+            <div class="galeria-filters" data-aos="fade-up" data-aos-delay="100">
+                <button class="galeria-filter active" data-filter="all">Tots</button>
+                <button class="galeria-filter" data-filter="interior">Interior</button>
+                <button class="galeria-filter" data-filter="plats">Plats</button>
+                <button class="galeria-filter" data-filter="ambient">Ambient</button>
             </div>
-            <div class="galeria-item">
-                <img src="brucheta.jpg" alt="Galeria 3">
+
+            <div class="galeria-container" data-aos="fade-up" data-aos-delay="200">
+                <div class="galeria-item" data-filter="ambient">
+                    <img src="restaurante.jpg" alt="Exterior del restaurant" class="galeria-img">
+                    <div class="galeria-overlay">
+                        <div class="galeria-info">
+                            <h4>Exterior</h4>
+                            <p>La nostra terrassa amb vistes</p>
+                            <button class="galeria-zoom-btn" data-img="img/restaurante.jpg">
+                                <span class="material-icons-round">zoom_in</span>
+                            </button>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="galeria-item" data-filter="interior">
+                    <img src="res-int.jpg" alt="Interior acollidor" class="galeria-img">
+                    <div class="galeria-overlay">
+                        <div class="galeria-info">
+                            <h4>Interior</h4>
+                            <p>Ambient acollidor i elegant</p>
+                            <button class="galeria-zoom-btn" data-img="img/res-int.jpg">
+                                <span class="material-icons-round">zoom_in</span>
+                            </button>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Añadir más elementos de galería siguiendo el mismo patrón -->
+
             </div>
-            <div class="galeria-item darker">
-                <img src="calamares.jpg" alt="Galeria 4">
+        </div>
+
+        <!-- Modal para vista ampliada -->
+        <div class="galeria-modal">
+            <span class="close-modal material-icons-round">close</span>
+            <img class="modal-img" src="">
+            <button class="modal-prev material-icons-round">arrow_back_ios</button>
+            <button class="modal-next material-icons-round">arrow_forward_ios</button>
+        </div>
+    </section>
+
+    <!-- Sección de Vídeos -->
+    <section id="videos" class="section bg-light">
+        <div class="container">
+            <div class="section-header" data-aos="fade-up">
+                <h2 class="section-title">Els nostres vídeos</h2>
+                <div class="separator"></div>
+                <p class="section-subtitle">Coneix de prop la nostra cuina i ambient</p>
             </div>
-            <div class="galeria-item darker">
-                <img src="caprese.jpg" alt="Galeria 5">
-            </div>
-            <div class="galeria-item">
-                <img src="croquet.png" alt="Galeria 6">
-            </div>
-            <div class="galeria-item">
-                <img src="croquetas.webp" alt="Galeria 7">
-            </div>
-            <div class="galeria-item darker">
-                <img src="restaurante.jpg" alt="Galeria 8">
+
+            <div class="videos-container">
+                <!-- Vídeo con controles nativos -->
+                <div class="video-wrapper" data-aos="fade-up" data-aos-delay="100">
+                    <h3>Visita el nostre restaurant</h3>
+                    <div class="video-responsive">
+                        <video id="restaurant-video" controls preload="metadata" >
+                            <source src="video.mp4" type="video/mp4">
+                            El teu navegador no suporta el tag de vídeo.
+                        </video>
+                    </div>
+                </div>
+
+                <!-- Vídeo con controles personalizados -->
+                <div class="video-wrapper" data-aos="fade-up" data-aos-delay="200">
+                    <h3>Descobreix les nostres creacions culinàries</h3>
+                    <div class="custom-video-container">
+                        <video id="custom-video" preload="metadata" >
+                            <source src="videoteaser.mp4" type="video/mp4">
+                            El teu navegador no suporta el tag de vídeo.
+                        </video>
+
+                        <!-- Capa de controles personalizada -->
+                        <div class="custom-controls">
+                            <button id="play-btn" class="video-btn" aria-label="Reproduir">
+                                <span class="material-icons-round">play_circle</span>
+                            </button>
+                            <button id="pause-btn" class="video-btn" aria-label="Pausar">
+                                <span class="material-icons-round">pause_circle</span>
+                            </button>
+                            <button id="mute-btn" class="video-btn" aria-label="Silenciar">
+                                <span class="material-icons-round">volume_off</span>
+                            </button>
+                            <button id="unmute-btn" class="video-btn" aria-label="Activar so">
+                                <span class="material-icons-round">volume_up</span>
+                            </button>
+                        </div>
+
+                        <!-- Progress bar -->
+                        <div class="video-progress-container">
+                            <div class="video-progress-bar"></div>
+                            <div class="video-progress-indicator"></div>
+                        </div>
+                    </div>
+                </div>
             </div>
         </div>
     </section>
 
     <!-- Formulario de Reserva -->
     <section id="reserva" class="section">
-        <h2>Reserva</h2>
-        <form id="formulario-reserva">
-            <div class="form-row">
-                <div class="form-group">
-                    <label for="nom">Nom</label>
-                    <input type="text" id="nom" name="nom" required>
-                </div>
-                <div class="form-group">
-                    <label for="persones">Número de persones</label>
-                    <input type="number" id="persones" name="persones" min="1" required>
-                </div>
+        <div class="container">
+            <div class="section-header" data-aos="fade-up">
+                <h2 class="section-title">Reserva</h2>
+                <div class="separator"></div>
+                <p class="section-subtitle">Reserva la teva taula i gaudeix d'una experiència única</p>
             </div>
-            <div class="form-row">
-                <div class="form-group">
-                    <label for="data">Data</label>
-                    <input type="date" id="data" name="data" required>
+
+            <div class="reserva-container" data-aos="fade-up" data-aos-delay="100">
+                <div class="reserva-info">
+                    <div class="reserva-card">
+                        <span class="material-icons-round">schedule</span>
+                        <h3>Horari</h3>
+                        <p>Dilluns a divendres:<br>13:00 - 16:00 i 20:00 - 23:00</p>
+                        <p>Caps de setmana:<br>13:00 - 17:00 i 20:00 - 00:00</p>
+                    </div>
+
+                    <div class="reserva-card">
+                        <span class="material-icons-round">place</span>
+                        <h3>Ubicació</h3>
+                        <p>Carrer de l'Exemple, 123<br>08001 Barcelona</p>
+                        <a href="https://maps.google.com" target="_blank" class="btn-text">Veure al mapa</a>
+                    </div>
+
+                    <div class="reserva-card">
+                        <span class="material-icons-round">call</span>
+                        <h3>Contacte</h3>
+                        <p>Telèfon: 93 123 45 67</p>
+                        <p>Email: info@elscoberts.com</p>
+                    </div>
                 </div>
-                <div class="form-group">
-                    <label for="hora">Hora</label>
-                    <input type="time" id="hora" name="hora" required>
-                </div>
+
+                <form id="formulario-reserva" data-aos="fade-up" data-aos-delay="200">
+                    <h3>Fes la teva reserva</h3>
+
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label for="nom">Nom complet</label>
+                            <input type="text" id="nom" name="nom" required placeholder="El teu nom">
+                            <span class="form-icon material-icons-round">person</span>
+                        </div>
+                        <div class="form-group">
+                            <label for="email">Email</label>
+                            <input type="email" id="email" name="email" required placeholder="El teu email">
+                            <span class="form-icon material-icons-round">email</span>
+                        </div>
+                    </div>
+
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label for="telefon">Telèfon</label>
+                            <input type="tel" id="telefon" name="telefon" required placeholder="El teu telèfon">
+                            <span class="form-icon material-icons-round">phone</span>
+                        </div>
+                        <div class="form-group">
+                            <label for="persones">Número de persones</label>
+                            <select id="persones" name="persones" required>
+                                <option value="" disabled selected>Selecciona</option>
+                                <option value="1">1 persona</option>
+                                <option value="2">2 persones</option>
+                                <option value="3">3 persones</option>
+                                <option value="4">4 persones</option>
+                                <option value="5">5 persones</option>
+                                <option value="6">6 persones</option>
+                                <option value="7+">7 o més persones</option>
+                            </select>
+                            <span class="form-icon material-icons-round">group</span>
+                        </div>
+                    </div>
+
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label for="data">Data</label>
+                            <input type="date" id="data" name="data" required>
+                            <span class="form-icon material-icons-round">event</span>
+                        </div>
+                        <div class="form-group">
+                            <label for="hora">Hora</label>
+                            <input type="time" id="hora" name="hora" required>
+                            <span class="form-icon material-icons-round">schedule</span>
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="descripcio">Observacions</label>
+                        <textarea id="descripcio" name="descripcio" rows="4"
+                            placeholder="Al·lèrgies, intoleràncies o altres peticions especials"></textarea>
+                    </div>
+
+                    <div class="form-submit">
+                        <button type="submit" class="btn btn-primary btn-reservar">
+                            <span class="material-icons-round">check_circle</span> Confirmar Reserva
+                        </button>
+                    </div>
+                </form>
             </div>
-            <div class="form-group">
-                <label for="descripcio">Descripció</label>
-                <textarea id="descripcio" name="descripcio" rows="4"></textarea>
-            </div>
-            <div class="form-submit">
-                <button type="submit" class="btn-reservar">Reservar</button>
-            </div>
-        </form>
+        </div>
     </section>
 
     <!-- Botón flotante de reserva -->
-    <a href="#reserva" id="btn-flotante" class="btn-reservar">Reservar</a>
+    <a href="#reserva" id="btn-flotante" class="btn-reservar">
+        <span class="material-icons-round">event</span> Reserva ara
+    </a>
 
     <!-- Footer con contacto -->
     <footer>
-        <div class="footer-container">
-            <div class="contacto">
-                <p><i class="material-icons">email</i> exemple@exemple.com</p>
-                <p><i class="material-icons">phone</i> 999999999</p>
+        <div class="container">
+            <div class="footer-container">
+                <div class="footer-col">
+                    <h3>Restaurant els Coberts</h3>
+                    <p>Restaurant de cuina tradicional catalana amb un toc modern, ubicat al cor de Barcelona.</p>
+                    <div class="social-icons">
+                        <a href="#" aria-label="Facebook"><i class="material-icons-round">facebook</i></a>
+                        <a href="#" aria-label="Instagram"><i class="material-icons-round">photo_camera</i></a>
+                        <a href="#" aria-label="Twitter"><i class="material-icons-round">alternate_email</i></a>
+                    </div>
+                </div>
+
+                <div class="footer-col">
+                    <h3>Contacte</h3>
+                    <div class="contacto">
+                        <p><i class="material-icons-round">location_on</i> Carrer de l'Exemple, 123, 08001 Barcelona</p>
+                        <p><i class="material-icons-round">email</i> info@elscoberts.com</p>
+                        <p><i class="material-icons-round">phone</i> 93 123 45 67</p>
+                    </div>
+                </div>
+
+                <div class="footer-col">
+                    <h3>Navegació</h3>
+                    <ul class="footer-links">
+                        <li><a href="#nosaltres">Nosaltres</a></li>
+                        <li><a href="#carta">Carta</a></li>
+                        <li><a href="#galeria">Galeria</a></li>
+                        <li><a href="#videos">Vídeos</a></li>
+                        <li><a href="#reserva">Reserva</a></li>
+                    </ul>
+                </div>
+
+                <div class="footer-col">
+                    <h3>Horari</h3>
+                    <ul class="footer-hours">
+                        <li><span>Dilluns - Divendres:</span> 13:00 - 16:00 | 20:00 - 23:00</li>
+                        <li><span>Dissabte - Diumenge:</span> 13:00 - 17:00 | 20:00 - 00:00</li>
+                    </ul>
+                    <div class="logo">
+                        <img src="logo.webp" alt="Logo Restaurant Els Coberts">
+                    </div>
+                </div>
             </div>
-            <div class="logo">
-                <img src="logo.webp" alt="Logo Restaurant">
+
+            <div class="footer-bottom">
+                <p>&copy; 2025 Restaurant els Coberts. Tots els drets reservats.</p>
+                <div class="footer-bottom-links">
+                    <a href="#">Política de privacitat</a>
+                    <a href="#">Avís legal</a>
+                    <a href="#">Cookies</a>
+                </div>
             </div>
         </div>
     </footer>
+
+    <!-- Botón para volver arriba -->
+    <a href="#" id="back-to-top" aria-label="Tornar amunt">
+        <span class="material-icons-round">keyboard_arrow_up</span>
+    </a>
+
+    <!-- Scripts -->
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+    <script src="js/main.js"></script>
+    <script src="js/navbar-scroll.js"></script>
+    <script src="js/video-controls.js"></script>
+    <script src="js/gallery.js"></script>
+    <script src="js/slider.js"></script>
 </body>
+
 </html>
