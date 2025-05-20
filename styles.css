@@ -7,24 +7,24 @@
 /* ===== VARIABLES Y CONFIGURACIÓN ===== */
 :root {
     /* Colores principales */
-    --color-primary: #8a5a44;
-    --color-primary-light: #a26d53;
-    --color-primary-dark: #6d4736;
-    --color-secondary: #43766c;
-    --color-secondary-light: #568c81;
-    --color-secondary-dark: #366058;
-    --color-accent: #f4b942;
-    --color-dark: #212529;
-    --color-text: #495057;
-    --color-text-light: #6c757d;
-    --color-light: #f8f9fa;
-    --color-light-gray: #e9ecef;
-    --color-white: #ffffff;
+    --color-primary: #6A0DAD; /* Dark Purple */
+    --color-primary-light: #800080; /* Purple */
+    --color-primary-dark: #4B0082; /* Indigo / Deeper Purple */
+    --color-secondary: #9370DB; /* Medium Purple */
+    --color-secondary-light: #B19CD9; /* Light Purple */
+    --color-secondary-dark: #7F00FF; /* Violet */
+    --color-accent: #FFD700; /* Gold - as an accent */
+    --color-text: #E6E6FA; /* Lavender - for text on dark backgrounds */
+    --color-text-light: #D8BFD8; /* Thistle - for lighter text elements */
+    --color-dark: #1A1A2E; /* Very Dark Blue/Purple - for backgrounds or dark sections */
+    --color-light: #2A2A4E; /* Darker shade for light sections, maintaining purple theme */
+    --color-light-gray: #3B3B6D; /* A muted purple for less emphasis areas */
+    --color-white: #FFFFFF; /* White for contrast if needed, or a very light lavender */
 
     /* Degradados */
     --gradient-primary: linear-gradient(135deg, var(--color-primary), var(--color-primary-dark));
     --gradient-secondary: linear-gradient(135deg, var(--color-secondary), var(--color-secondary-dark));
-    --gradient-overlay: linear-gradient(to bottom, rgba(33, 37, 41, 0.3), rgba(33, 37, 41, 0.7));
+    --gradient-overlay: linear-gradient(to bottom, rgba(26, 26, 46, 0.5), rgba(26, 26, 46, 0.8)); /* Adjusted overlay for dark theme */
 
     /* Tipografía */
     --font-primary: 'Montserrat', sans-serif;
@@ -90,7 +90,7 @@ body {
     font-weight: 400;
     line-height: 1.7;
     color: var(--color-text);
-    background-color: var(--color-white);
+    background-color: var(--color-dark); /* Base background to dark */
     overflow-x: hidden;
 }
 
@@ -145,7 +145,7 @@ h6 {
     font-weight: 700;
     line-height: 1.3;
     margin-bottom: 1rem;
-    color: var(--color-dark);
+    color: var(--color-text); /* Headings color adjusted for dark theme */
 }
 
 h1 {
@@ -180,7 +180,7 @@ p {
 }
 
 .bg-light {
-    background-color: var(--color-light-gray);
+    background-color: var(--color-light); /* Use the new light purple for .bg-light */
 }
 
 .accent {
@@ -244,6 +244,22 @@ p {
     }
 }
 
+@keyframes slideUpFadeIn { /* New animation for section titles */
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* Class to trigger section title animation */
+.section-title.animate {
+    animation: slideUpFadeIn 0.8s ease-out forwards;
+}
+
 /* ===== PRELOADER ===== */
 .preloader {
     position: fixed;
@@ -251,7 +267,7 @@ p {
     left: 0;
     width: 100%;
     height: 100%;
-    background-color: var(--color-white);
+    background-color: var(--color-dark); /* Preloader background to dark */
     display: flex;
     justify-content: center;
     align-items: center;
@@ -267,8 +283,8 @@ p {
 .spinner {
     width: 50px;
     height: 50px;
-    border: 5px solid var(--color-light-gray);
-    border-top-color: var(--color-primary);
+    border: 5px solid var(--color-light-gray); /* Muted purple border */
+    border-top-color: var(--color-accent); /* Accent color for spinner animation */
     border-radius: 50%;
     animation: spin 1s linear infinite;
 }
@@ -289,43 +305,44 @@ p {
 
 .btn-primary {
     background-color: var(--color-primary);
-    color: var(--color-white);
+    color: var(--color-text); /* Text color for buttons on primary background */
 }
 
 .btn-primary:hover {
     background-color: var(--color-primary-dark);
-    color: var(--color-white);
-    transform: translateY(-2px);
+    color: var(--color-text-light);
+    transform: translateY(-2px) scale(1.05); /* Added scale */
     box-shadow: var(--shadow-md);
 }
 
 .btn-secondary {
     background-color: var(--color-secondary);
-    color: var(--color-white);
+    color: var(--color-text); /* Text color for buttons on secondary background */
 }
 
 .btn-secondary:hover {
     background-color: var(--color-secondary-dark);
-    color: var(--color-white);
-    transform: translateY(-2px);
+    color: var(--color-text-light);
+    transform: translateY(-2px) scale(1.05); /* Added scale */
     box-shadow: var(--shadow-md);
 }
 
 .btn-outline {
     background-color: transparent;
-    color: var(--color-white);
-    border: 2px solid var(--color-white);
+    color: var(--color-accent); /* Accent color for outline button text */
+    border: 2px solid var(--color-accent); /* Accent color for outline button border */
 }
 
 .btn-outline:hover {
-    background-color: var(--color-white);
-    color: var(--color-primary);
-    transform: translateY(-2px);
+    background-color: var(--color-accent);
+    color: var(--color-dark); /* Dark text on accent background for hover */
+    transform: translateY(-2px) scale(1.03); /* Added subtle scale */
     box-shadow: var(--shadow-md);
+    border-width: 3px; /* Made border thicker */
 }
 
 .btn-text {
-    color: var(--color-primary);
+    color: var(--color-accent); /* Accent color for text buttons */
     position: relative;
     padding-bottom: 3px;
     font-weight: 600;
@@ -338,7 +355,7 @@ p {
     bottom: 0;
     width: 100%;
     height: 2px;
-    background-color: var(--color-primary);
+    background-color: var(--color-accent); /* Accent color for text button underline */
     transform: scaleX(0);
     transform-origin: right;
     transition: transform 0.3s ease;
@@ -367,7 +384,7 @@ p {
     left: 0;
     width: 100%;
     z-index: var(--z-sticky);
-    background-color: rgba(255, 255, 255, 0.95);
+    background-color: rgba(26, 26, 46, 0.95); /* Dark purple navbar background with opacity */
     box-shadow: var(--shadow-sm);
     transition: var(--transition-normal);
     padding: 1.2rem 0;
@@ -375,7 +392,7 @@ p {
 
 .navbar.scrolled {
     padding: 0.8rem 0;
-    background-color: rgba(255, 255, 255, 0.98);
+    background-color: rgba(26, 26, 46, 0.98); /* Slightly more opaque dark purple on scroll */
     box-shadow: var(--shadow-md);
 }
 
@@ -396,7 +413,7 @@ p {
 }
 
 .logo-img {
-    width: 60%;
+    width: 80%; /* Increased from 60% for better visibility */
 }
 
 .menu-container {
@@ -407,7 +424,7 @@ p {
 
 .nav-link {
     position: relative;
-    color: var(--color-dark);
+    color: var(--color-text); /* Nav link text color for dark theme */
     font-weight: 500;
     padding: 0.5rem 0;
     text-transform: uppercase;
@@ -421,14 +438,15 @@ p {
     bottom: 0;
     left: 0;
     width: 100%;
-    height: 2px;
-    background-color: var(--color-primary);
+    height: 3px; /* Made underline thicker */
+    background-color: var(--color-accent); /* Accent color for nav link underline */
     transform: scaleX(0);
-    transition: transform 0.3s ease;
+    transform-origin: center; /* Changed transform origin */
+    transition: transform 0.4s cubic-bezier(0.19, 1, 0.22, 1); /* Smoother transition */
 }
 
 .nav-link:hover {
-    color: var(--color-primary);
+    color: var(--color-accent); /* Accent color on hover */
 }
 
 .nav-link:hover::after {
@@ -448,7 +466,7 @@ p {
 .mobile-menu-btn .bar {
     width: 100%;
     height: 2px;
-    background-color: var(--color-dark);
+    background-color: var(--color-text); /* Hamburger icon bars color */
     transition: var(--transition-normal);
 }
 
@@ -504,7 +522,7 @@ p {
     left: 50%;
     transform: translate(-50%, -50%);
     text-align: center;
-    color: var(--color-white);
+    color: var(--color-white); /* Header text remains white for contrast on overlay */
     width: 90%;
     max-width: 800px;
     z-index: var(--z-elevate);
@@ -512,7 +530,7 @@ p {
 
 .header-content h1 {
     margin-bottom: 1rem;
-    color: var(--color-white);
+    color: var(--color-white); /* Header h1 remains white */
     text-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
 }
 
@@ -540,7 +558,7 @@ p {
 }
 
 .scroll-down a {
-    color: var(--color-white);
+    color: var(--color-text-light); /* Scroll down icon color */
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -586,13 +604,13 @@ p {
 .separator {
     height: 3px;
     width: 80px;
-    background-color: var(--color-accent);
+    background-color: var(--color-accent); /* Separator remains accent color */
     margin: 0 auto 1.5rem;
 }
 
 .section-subtitle {
     font-size: 1.2rem;
-    color: var(--color-text-light);
+    color: var(--color-text); /* Section subtitle text color */
     max-width: 600px;
     margin: 0 auto;
     font-family: var(--font-secondary);
@@ -643,7 +661,7 @@ p {
     left: 0;
     width: 50px;
     height: 2px;
-    background-color: var(--color-accent);
+    background-color: var(--color-accent); /* "Nosaltres" heading underline remains accent */
 }
 
 .nosaltres-stats {
@@ -656,7 +674,7 @@ p {
 .stat-item {
     flex: 1;
     padding: 1.5rem;
-    background-color: var(--color-light);
+    background-color: var(--color-light-gray); /* Stat item background */
     border-radius: var(--border-radius-md);
     box-shadow: var(--shadow-sm);
     transition: var(--transition-normal);
@@ -671,7 +689,7 @@ p {
     display: block;
     font-size: 2.5rem;
     font-weight: 700;
-    color: var(--color-primary);
+    color: var(--color-accent); /* Stat number color to accent */
     margin-bottom: 0.5rem;
     font-family: var(--font-secondary);
 }
@@ -681,7 +699,7 @@ p {
     text-transform: uppercase;
     letter-spacing: 1px;
     font-weight: 600;
-    color: var(--color-text-light);
+    color: var(--color-text); /* Stat text color */
 }
 
 /* ===== SECCIÓN CARTA ===== */
@@ -695,7 +713,8 @@ p {
 
 .menu-tab {
     padding: 0.8rem 1.5rem;
-    background-color: var(--color-white);
+    background-color: var(--color-light); /* Menu tab background */
+    color: var(--color-text); /* Menu tab text color */
     border-radius: var(--border-radius-md);
     font-weight: 600;
     cursor: pointer;
@@ -706,7 +725,7 @@ p {
 .menu-tab.active,
 .menu-tab:hover {
     background-color: var(--color-primary);
-    color: var(--color-white);
+    color: var(--color-text-light); /* Active/hover menu tab text color */
     box-shadow: var(--shadow-md);
 }
 
@@ -733,7 +752,7 @@ p {
 
 .menu-description {
     font-size: 1.1rem;
-    color: var(--color-text-light);
+    color: var(--color-text); /* Menu description text color */
     margin-bottom: 1rem;
     font-style: italic;
     font-family: var(--font-secondary);
@@ -742,8 +761,8 @@ p {
 .menu-price {
     display: inline-block;
     padding: 0.5rem 1.5rem;
-    background-color: var(--color-accent);
-    color: var(--color-dark);
+    background-color: var(--color-accent); /* Menu price background remains accent */
+    color: var(--color-dark); /* Menu price text color on accent background */
     font-weight: 700;
     border-radius: var(--border-radius-sm);
 }
@@ -755,7 +774,7 @@ p {
 }
 
 .plato {
-    background-color: var(--color-white);
+    background-color: var(--color-light); /* Plato (dish item) background */
     border-radius: var(--border-radius-lg);
     overflow: hidden;
     box-shadow: var(--shadow-md);
@@ -763,7 +782,7 @@ p {
 }
 
 .plato:hover {
-    transform: translateY(-10px);
+    transform: translateY(-8px); /* Adjusted to -8px as requested */
     box-shadow: var(--shadow-lg);
 }
 
@@ -795,7 +814,7 @@ p {
 
 .plato-descripcion {
     font-size: 0.95rem;
-    color: var(--color-text-light);
+    color: var(--color-text); /* Plato description text color */
     margin-bottom: 0;
 }
 
@@ -807,7 +826,7 @@ p {
 .menu-note {
     font-style: italic;
     font-size: 0.9rem;
-    color: var(--color-text-light);
+    color: var(--color-text); /* Menu note text color */
     margin-bottom: 1.5rem;
 }
 
@@ -822,7 +841,8 @@ p {
 
 .galeria-filter {
     padding: 0.6rem 1.2rem;
-    background-color: var(--color-white);
+    background-color: var(--color-light); /* Gallery filter background */
+    color: var(--color-text); /* Gallery filter text color */
     border: 1px solid var(--color-light-gray);
     border-radius: var(--border-radius-md);
     font-weight: 500;
@@ -833,7 +853,7 @@ p {
 .galeria-filter.active,
 .galeria-filter:hover {
     background-color: var(--color-primary);
-    color: var(--color-white);
+    color: var(--color-text-light); /* Active/hover gallery filter text color */
     border-color: var(--color-primary);
 }
 
@@ -849,6 +869,12 @@ p {
     border-radius: var(--border-radius-md);
     overflow: hidden;
     box-shadow: var(--shadow-md);
+    transition: transform 0.3s ease, box-shadow 0.3s ease; /* Added transition */
+}
+
+.galeria-item:hover { /* Added hover effect for galeria-item */
+    transform: translateY(-8px);
+    box-shadow: var(--shadow-lg);
 }
 
 .galeria-img {
@@ -864,7 +890,7 @@ p {
     left: 0;
     width: 100%;
     height: 100%;
-    background: linear-gradient(to top, rgba(0, 0, 0, 0.8), transparent);
+    background: linear-gradient(to top, rgba(26, 26, 46, 0.8), transparent); /* Gallery item overlay */
     display: flex;
     align-items: flex-end;
     padding: 1.5rem;
@@ -881,13 +907,13 @@ p {
 }
 
 .galeria-info {
-    color: var(--color-white);
+    color: var(--color-text-light); /* Gallery info text color on overlay */
     width: 100%;
 }
 
 .galeria-info h4 {
     margin-bottom: 0.5rem;
-    color: var(--color-white);
+    color: var(--color-white); /* Gallery info heading remains white for contrast */
 }
 
 .galeria-info p {
@@ -897,8 +923,8 @@ p {
 }
 
 .galeria-zoom-btn {
-    background-color: var(--color-accent);
-    color: var(--color-dark);
+    background-color: var(--color-accent); /* Gallery zoom button remains accent */
+    color: var(--color-dark); /* Text on accent should be dark */
     width: 40px;
     height: 40px;
     border-radius: var(--border-radius-circle);
@@ -918,7 +944,7 @@ p {
     left: 0;
     width: 100%;
     height: 100%;
-    background-color: rgba(0, 0, 0, 0.9);
+    background-color: rgba(26, 26, 46, 0.9); /* Gallery modal background overlay */
     z-index: var(--z-modal);
     display: flex;
     align-items: center;
@@ -943,7 +969,7 @@ p {
     position: absolute;
     top: 20px;
     right: 20px;
-    color: var(--color-white);
+    color: var(--color-text-light); /* Close modal button color */
     font-size: 2rem;
     cursor: pointer;
     transition: var(--transition-normal);
@@ -958,11 +984,11 @@ p {
     position: absolute;
     top: 50%;
     transform: translateY(-50%);
-    color: var(--color-white);
+    color: var(--color-text-light); /* Modal navigation button color */
     font-size: 2rem;
     cursor: pointer;
     transition: var(--transition-normal);
-    background-color: rgba(0, 0, 0, 0.4);
+    background-color: rgba(26, 26, 46, 0.4); /* Modal navigation button background */
     width: 50px;
     height: 50px;
     border-radius: var(--border-radius-circle);
@@ -1035,7 +1061,7 @@ p {
     display: flex;
     gap: 15px;
     padding: 10px 15px;
-    background-color: rgba(0, 0, 0, 0.5);
+    background-color: rgba(26, 26, 46, 0.5); /* Custom video controls background */
     border-radius: var(--border-radius-xl);
     opacity: 0.7;
     transition: var(--transition-normal);
@@ -1046,7 +1072,7 @@ p {
 }
 
 .video-btn {
-    color: var(--color-white);
+    color: var(--color-text-light); /* Video control button color */
     background: none;
     border: none;
     cursor: pointer;
@@ -1072,13 +1098,13 @@ p {
     left: 0;
     width: 100%;
     height: 5px;
-    background-color: rgba(255, 255, 255, 0.2);
+    background-color: rgba(230, 230, 250, 0.2); /* Video progress container background (lavender with opacity) */
 }
 
 .video-progress-bar {
     height: 100%;
     width: 0;
-    background-color: var(--color-accent);
+    background-color: var(--color-accent); /* Video progress bar remains accent */
     transition: width 0.1s linear;
 }
 
@@ -1089,7 +1115,7 @@ p {
     transform: translate(50%, -50%);
     width: 12px;
     height: 12px;
-    background-color: var(--color-accent);
+    background-color: var(--color-accent); /* Video progress indicator remains accent */
     border-radius: 50%;
     display: none;
 }
@@ -1108,7 +1134,7 @@ p {
 }
 
 .reserva-card {
-    background-color: var(--color-white);
+    background-color: var(--color-light); /* Reservation card background */
     padding: 2rem;
     border-radius: var(--border-radius-lg);
     box-shadow: var(--shadow-md);
@@ -1117,13 +1143,13 @@ p {
 }
 
 .reserva-card:hover {
-    transform: translateY(-5px);
+    transform: translateY(-8px); /* Adjusted to -8px */
     box-shadow: var(--shadow-lg);
 }
 
 .reserva-card .material-icons-round {
     font-size: 2.5rem;
-    color: var(--color-primary);
+    color: var(--color-accent); /* Reservation card icon color to accent */
     margin-bottom: 1rem;
 }
 
@@ -1140,16 +1166,16 @@ p {
     left: 0;
     width: 100%;
     height: 2px;
-    background-color: var(--color-accent);
+    background-color: var(--color-accent); /* Reservation card heading underline remains accent */
 }
 
 .reserva-card p {
     margin-bottom: 0.5rem;
-    color: var(--color-text);
+    color: var(--color-text-light); /* Reservation card text color */
 }
 
 #formulario-reserva {
-    background-color: var(--color-white);
+    background-color: var(--color-light); /* Reservation form background */
     padding: 3rem;
     border-radius: var(--border-radius-lg);
     box-shadow: var(--shadow-md);
@@ -1171,7 +1197,7 @@ p {
     left: 0;
     width: 100%;
     height: 2px;
-    background-color: var(--color-accent);
+    background-color: var(--color-accent); /* Form heading underline remains accent */
 }
 
 .form-row {
@@ -1189,7 +1215,7 @@ label {
     display: block;
     margin-bottom: 0.5rem;
     font-weight: 500;
-    color: var(--color-text);
+    color: var(--color-text-light); /* Form label text color */
 }
 
 input,
@@ -1197,9 +1223,10 @@ textarea,
 select {
     width: 100%;
     padding: 1rem 1rem 1rem 2.5rem;
-    border: 1px solid var(--color-light-gray);
+    border: 1px solid var(--color-dark); /* Input border color */
     border-radius: var(--border-radius-md);
-    background-color: var(--color-light);
+    background-color: var(--color-light-gray); /* Input background color */
+    color: var(--color-text); /* Input text color */
     transition: var(--transition-normal);
 }
 
@@ -1207,8 +1234,8 @@ input:focus,
 textarea:focus,
 select:focus {
     outline: none;
-    border-color: var(--color-primary);
-    box-shadow: 0 0 0 3px rgba(138, 90, 68, 0.1);
+    border-color: var(--color-accent); /* Input focus border to accent */
+    box-shadow: 0 0 0 3px rgba(255, 215, 0, 0.2); /* Gold glow on focus */
 }
 
 textarea {
@@ -1220,7 +1247,7 @@ textarea {
     position: absolute;
     top: 2.3rem;
     left: 0.8rem;
-    color: var(--color-text-light);
+    color: var(--color-text); /* Form icon color */
     font-size: 1.2rem;
 }
 
@@ -1235,8 +1262,8 @@ textarea {
     bottom: 2rem;
     right: 2rem;
     padding: 1rem 1.5rem;
-    background-color: var(--color-accent);
-    color: var(--color-dark);
+    background-color: var(--color-accent); /* Floating button remains accent */
+    color: var(--color-dark); /* Text on accent should be dark */
     border-radius: var(--border-radius-xl);
     z-index: var(--z-drawer);
     box-shadow: var(--shadow-lg);
@@ -1257,8 +1284,8 @@ textarea {
 
 /* ===== FOOTER ===== */
 footer {
-    background-color: var(--color-dark);
-    color: var(--color-light);
+    background-color: var(--color-dark); /* Footer background to new dark */
+    color: var(--color-text-light); /* Footer text color */
     padding: 5rem 0 0;
 }
 
@@ -1270,7 +1297,7 @@ footer {
 }
 
 .footer-col h3 {
-    color: var(--color-white);
+    color: var(--color-white); /* Footer headings remain white */
     margin-bottom: 1.5rem;
     position: relative;
     padding-bottom: 1rem;
@@ -1283,7 +1310,7 @@ footer {
     left: 0;
     width: 40px;
     height: 2px;
-    background-color: var(--color-accent);
+    background-color: var(--color-accent); /* Footer heading underline remains accent */
 }
 
 .footer-col p {
@@ -1303,14 +1330,15 @@ footer {
     justify-content: center;
     width: 40px;
     height: 40px;
-    background-color: rgba(255, 255, 255, 0.1);
+    background-color: rgba(230, 230, 250, 0.1); /* Social icon background (lavender with opacity) */
     border-radius: var(--border-radius-circle);
-    color: var(--color-white);
+    color: var(--color-white); /* Social icons remain white */
     transition: var(--transition-normal);
 }
 
 .social-icons a:hover {
-    background-color: var(--color-primary);
+    background-color: var(--color-accent); /* Social icon hover to accent */
+    color: var(--color-dark); /* Dark icon on accent hover */
     transform: translateY(-3px);
 }
 
@@ -1328,7 +1356,7 @@ footer {
 }
 
 .contacto .material-icons-round {
-    color: var(--color-accent);
+    color: var(--color-accent); /* Contact icons remain accent */
 }
 
 .footer-links li {
@@ -1336,13 +1364,13 @@ footer {
 }
 
 .footer-links a {
-    color: var(--color-light);
+    color: var(--color-text-light); /* Footer link color */
     opacity: 0.8;
     transition: var(--transition-normal);
 }
 
 .footer-links a:hover {
-    color: var(--color-accent);
+    color: var(--color-accent); /* Footer link hover to accent */
     opacity: 1;
     padding-left: 5px;
 }
@@ -1350,11 +1378,12 @@ footer {
 .footer-hours li {
     margin-bottom: 1rem;
     opacity: 0.8;
+    color: var(--color-text-light); /* Footer hours text color */
 }
 
 .footer-hours span {
     font-weight: 600;
-    color: var(--color-accent);
+    color: var(--color-accent); /* Footer hours span (day) remains accent */
     display: block;
     margin-bottom: 0.3rem;
 }
@@ -1365,7 +1394,7 @@ footer {
 }
 
 .footer-bottom {
-    border-top: 1px solid rgba(255, 255, 255, 0.1);
+    border-top: 1px solid rgba(230, 230, 250, 0.1); /* Footer bottom border (lavender with opacity) */
     padding: 2rem 0;
     text-align: center;
 }
@@ -1383,13 +1412,13 @@ footer {
 }
 
 .footer-bottom-links a {
-    color: var(--color-light);
+    color: var(--color-text-light); /* Footer bottom link color */
     opacity: 0.7;
     font-size: 0.9rem;
 }
 
 .footer-bottom-links a:hover {
-    color: var(--color-accent);
+    color: var(--color-accent); /* Footer bottom link hover to accent */
     opacity: 1;
 }
 
@@ -1400,8 +1429,8 @@ footer {
     left: 2rem;
     width: 50px;
     height: 50px;
-    background-color: var(--color-primary);
-    color: var(--color-white);
+    background-color: var(--color-accent); /* Back to top button to accent */
+    color: var(--color-dark); /* Dark text on accent for back to top */
     border-radius: var(--border-radius-circle);
     display: flex;
     align-items: center;
@@ -1419,7 +1448,8 @@ footer {
 }
 
 #back-to-top:hover {
-    background-color: var(--color-primary-dark);
+    background-color: var(--color-accent); /* Keep accent on hover */
+    filter: brightness(0.9); /* Slightly darken accent on hover */
     transform: translateY(-5px);
 }
 
@@ -1490,7 +1520,7 @@ footer {
         width: 80%;
         max-width: 350px;
         height: 100vh;
-        background-color: var(--color-white);
+        background-color: var(--color-dark); /* Mobile menu background to dark */
         flex-direction: column;
         align-items: flex-start;
         padding: 8rem 2rem 2rem;
@@ -1506,7 +1536,7 @@ footer {
     .nav-link {
         width: 100%;
         padding: 1rem 0;
-        border-bottom: 1px solid var(--color-light-gray);
+        border-bottom: 1px solid var(--color-light-gray); /* Mobile nav link border */
     }
 
     .nosaltres-container {
@@ -1589,557 +1619,3 @@ footer {
     #back-to-top {
         left: 1rem;
     } }
-
-    /* ===== AÑADIR AL FINAL DEL ARCHIVO styles.css ===== */
-
-/* Estilos para el slider */
-.slider-container {
-    position: relative;
-    width: 100%;
-    height: 100%;
-  }
-  
-  .slide {
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    opacity: 0;
-    transition: opacity 1s ease;
-    z-index: var(--z-negative);
-  }
-  
-  .slide.active {
-    opacity: 1;
-    z-index: var(--z-elevate);
-  }
-  
-  .slide.with-transition {
-    transition: opacity 1s ease;
-  }
-  
-  .slide.fade-out {
-    opacity: 0;
-  }
-  
-  .slider-indicators {
-    position: absolute;
-    bottom: 30px;
-    left: 50%;
-    transform: translateX(-50%);
-    display: flex;
-    gap: 10px;
-    z-index: var(--z-elevate);
-  }
-  
-  .slider-indicator {
-    width: 12px;
-    height: 12px;
-    border-radius: 50%;
-    background-color: rgba(255, 255, 255, 0.5);
-    border: 2px solid var(--color-white);
-    cursor: pointer;
-    transition: var(--transition-normal);
-  }
-  
-  .slider-indicator.active {
-    background-color: var(--color-accent);
-    transform: scale(1.2);
-  }
-  
-  .slider-nav {
-    position: absolute;
-    top: 50%;
-    transform: translateY(-50%);
-    width: 50px;
-    height: 50px;
-    background-color: rgba(0, 0, 0, 0.3);
-    color: var(--color-white);
-    border-radius: 50%;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    cursor: pointer;
-    z-index: var(--z-elevate);
-    transition: var(--transition-normal);
-  }
-  
-  .slider-nav:hover {
-    background-color: rgba(0, 0, 0, 0.6);
-  }
-  
-  .slider-prev {
-    left: 20px;
-  }
-  
-  .slider-next {
-    right: 20px;
-  }
-  
-  /* Animaciones adicionales para la galería */
-  .galeria-item {
-    opacity: 0;
-    transform: translateY(30px);
-    transition: opacity 0.5s ease, transform 0.5s ease;
-  }
-  
-  .galeria-item.item-revealed {
-    opacity: 1;
-    transform: translateY(0);
-  }
-  
-  .galeria-modal .modal-img {
-    transition: transform 0.3s ease;
-  }
-  
-  .galeria-modal .modal-img.zoom-in {
-    transform: scale(0.9);
-  }
-  
-  .galeria-modal .modal-img.zoom-out {
-    transform: scale(0.9);
-  }
-  
-  .galeria-modal .modal-img.slide-change {
-    opacity: 0;
-    transform: scale(0.9);
-  }
-  
-  /* Estilos para el aviso de cookies */
-  .cookie-consent {
-    position: fixed;
-    bottom: 0;
-    left: 0;
-    width: 100%;
-    background-color: var(--color-dark);
-    color: var(--color-white);
-    padding: 15px 30px;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    z-index: var(--z-modal);
-    box-shadow: 0 -5px 15px rgba(0, 0, 0, 0.1);
-    transition: transform 0.5s ease, opacity 0.5s ease;
-  }
-  
-  .cookie-consent.hiding {
-    transform: translateY(100%);
-    opacity: 0;
-  }
-  
-  .cookie-text {
-    flex: 3;
-  }
-  
-  .cookie-text p {
-    margin: 0;
-    font-size: 0.9rem;
-  }
-  
-  .cookie-buttons {
-    flex: 1;
-    display: flex;
-    gap: 10px;
-    justify-content: flex-end;
-  }
-  
-  .btn-accept {
-    background-color: var(--color-accent);
-    color: var(--color-dark);
-    padding: 8px 20px;
-    border-radius: var(--border-radius-md);
-    font-weight: 600;
-    cursor: pointer;
-    transition: var(--transition-normal);
-  }
-  
-  .btn-accept:hover {
-    background-color: var(--color-accent);
-    transform: translateY(-3px);
-  }
-  
-  .btn-more {
-    background-color: transparent;
-    color: var(--color-white);
-    padding: 8px 20px;
-    border: 1px solid var(--color-white);
-    border-radius: var(--border-radius-md);
-    cursor: pointer;
-    transition: var(--transition-normal);
-  }
-  
-  .btn-more:hover {
-    background-color: var(--color-white);
-    color: var(--color-dark);
-  }
-  
-  /* Animaciones adicionales para elementos que aparecen al hacer scroll */
-  .reveal {
-    opacity: 0;
-    transform: translateY(50px);
-    transition: opacity 0.8s ease, transform 0.8s ease;
-  }
-  
-  .reveal.revealed {
-    opacity: 1;
-    transform: translateY(0);
-  }
-  
-  /* Estilos para el preloader */
-  .preloader {
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    background-color: var(--color-white);
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    z-index: var(--z-modal);
-    transition: opacity 0.5s ease, visibility 0.5s ease;
-  }
-  
-  .preloader.hide {
-    opacity: 0;
-    visibility: hidden;
-  }
-  
-  .spinner {
-    width: 50px;
-    height: 50px;
-    border: 4px solid rgba(138, 90, 68, 0.1);
-    border-top-color: var(--color-primary);
-    border-radius: 50%;
-    animation: spin 1s linear infinite;
-  }
-  
-  @keyframes spin {
-    0% {
-      transform: rotate(0deg);
-    }
-    100% {
-      transform: rotate(360deg);
-    }
-  }
-  
-  /* Mejoras para los formularios */
-  input::placeholder, textarea::placeholder {
-    color: var(--color-text-light);
-    opacity: 0.7;
-  }
-  
-  input:focus::placeholder, textarea:focus::placeholder {
-    opacity: 0.5;
-  }
-  
-  /* Mejoras para dispositivos móviles */
-  @media (max-width: 576px) {
-    .slider-nav {
-      width: 40px;
-      height: 40px;
-    }
-    
-    .slider-indicator {
-      width: 10px;
-      height: 10px;
-    }
-    
-    .cookie-consent {
-      flex-direction: column;
-      text-align: center;
-      padding: 15px;
-    }
-    
-    .cookie-text {
-      margin-bottom: 15px;
-    }
-    
-    .cookie-buttons {
-      justify-content: center;
-      width: 100%;
-    }
-  }
-/* ===== AÑADIR AL FINAL DEL ARCHIVO styles.css ===== */
-
-/* Estilos para el slider */
-.slider-container {
-    position: relative;
-    width: 100%;
-    height: 100%;
-}
-
-.slide {
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    opacity: 0;
-    transition: opacity 1s ease;
-    z-index: var(--z-negative);
-}
-
-.slide.active {
-    opacity: 1;
-    z-index: var(--z-elevate);
-}
-
-.slide.with-transition {
-    transition: opacity 1s ease;
-}
-
-.slide.fade-out {
-    opacity: 0;
-}
-
-.slider-indicators {
-    position: absolute;
-    bottom: 30px;
-    left: 50%;
-    transform: translateX(-50%);
-    display: flex;
-    gap: 10px;
-    z-index: var(--z-elevate);
-}
-
-.slider-indicator {
-    width: 12px;
-    height: 12px;
-    border-radius: 50%;
-    background-color: rgba(255, 255, 255, 0.5);
-    border: 2px solid var(--color-white);
-    cursor: pointer;
-    transition: var(--transition-normal);
-}
-
-.slider-indicator.active {
-    background-color: var(--color-accent);
-    transform: scale(1.2);
-}
-
-.slider-nav {
-    position: absolute;
-    top: 50%;
-    transform: translateY(-50%);
-    width: 50px;
-    height: 50px;
-    background-color: rgba(0, 0, 0, 0.3);
-    color: var(--color-white);
-    border-radius: 50%;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    cursor: pointer;
-    z-index: var(--z-elevate);
-    transition: var(--transition-normal);
-}
-
-.slider-nav:hover {
-    background-color: rgba(0, 0, 0, 0.6);
-}
-
-.slider-prev {
-    left: 20px;
-}
-
-.slider-next {
-    right: 20px;
-}
-
-/* Animaciones adicionales para la galería */
-.galeria-item {
-    opacity: 0;
-    transform: translateY(30px);
-    transition: opacity 0.5s ease, transform 0.5s ease;
-}
-
-.galeria-item.item-revealed {
-    opacity: 1;
-    transform: translateY(0);
-}
-
-.galeria-modal .modal-img {
-    transition: transform 0.3s ease;
-}
-
-.galeria-modal .modal-img.zoom-in {
-    transform: scale(0.9);
-}
-
-.galeria-modal .modal-img.zoom-out {
-    transform: scale(0.9);
-}
-
-.galeria-modal .modal-img.slide-change {
-    opacity: 0;
-    transform: scale(0.9);
-}
-
-/* Estilos para el aviso de cookies */
-.cookie-consent {
-    position: fixed;
-    bottom: 0;
-    left: 0;
-    width: 100%;
-    background-color: var(--color-dark);
-    color: var(--color-white);
-    padding: 15px 30px;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    z-index: var(--z-modal);
-    box-shadow: 0 -5px 15px rgba(0, 0, 0, 0.1);
-    transition: transform 0.5s ease, opacity 0.5s ease;
-}
-
-.cookie-consent.hiding {
-    transform: translateY(100%);
-    opacity: 0;
-}
-
-.cookie-text {
-    flex: 3;
-}
-
-.cookie-text p {
-    margin: 0;
-    font-size: 0.9rem;
-}
-
-.cookie-buttons {
-    flex: 1;
-    display: flex;
-    gap: 10px;
-    justify-content: flex-end;
-}
-
-.btn-accept {
-    background-color: var(--color-accent);
-    color: var(--color-dark);
-    padding: 8px 20px;
-    border-radius: var(--border-radius-md);
-    font-weight: 600;
-    cursor: pointer;
-    transition: var(--transition-normal);
-}
-
-.btn-accept:hover {
-    background-color: var(--color-accent);
-    transform: translateY(-3px);
-}
-
-.btn-more {
-    background-color: transparent;
-    color: var(--color-white);
-    padding: 8px 20px;
-    border: 1px solid var(--color-white);
-    border-radius: var(--border-radius-md);
-    cursor: pointer;
-    transition: var(--transition-normal);
-}
-
-.btn-more:hover {
-    background-color: var(--color-white);
-    color: var(--color-dark);
-}
-
-/* Animaciones adicionales para elementos que aparecen al hacer scroll */
-.reveal {
-    opacity: 0;
-    transform: translateY(50px);
-    transition: opacity 0.8s ease, transform 0.8s ease;
-}
-
-.reveal.revealed {
-    opacity: 1;
-    transform: translateY(0);
-}
-
-/* Estilos para el preloader */
-.preloader {
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    background-color: var(--color-white);
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    z-index: var(--z-modal);
-    transition: opacity 0.5s ease, visibility 0.5s ease;
-}
-
-.preloader.hide {
-    opacity: 0;
-    visibility: hidden;
-}
-
-.spinner {
-    width: 50px;
-    height: 50px;
-    border: 4px solid rgba(138, 90, 68, 0.1);
-    border-top-color: var(--color-primary);
-    border-radius: 50%;
-    animation: spin 1s linear infinite;
-}
-
-@keyframes spin {
-    0% {
-        transform: rotate(0deg);
-    }
-
-    100% {
-        transform: rotate(360deg);
-    }
-}
-
-/* Mejoras para los formularios */
-input::placeholder,
-textarea::placeholder {
-    color: var(--color-text-light);
-    opacity: 0.7;
-}
-
-input:focus::placeholder,
-textarea:focus::placeholder {
-    opacity: 0.5;
-}
-
-/* Mejoras para dispositivos móviles */
-@media (max-width: 576px) {
-    .slider-nav {
-        width: 40px;
-        height: 40px;
-    }
-
-    .slider-indicator {
-        width: 10px;
-        height: 10px;
-    }
-
-    .cookie-consent {
-        flex-direction: column;
-        text-align: center;
-        padding: 15px;
-    }
-
-    .cookie-text {
-        margin-bottom: 15px;
-    }
-
-    .cookie-buttons {
-        justify-content: center;
-        width: 100%;
-    } }
-
-
-.opacity {
-    opacity: 0.5;
-}
-
-.black {
-    background-color: var(--color-dark);
-}
